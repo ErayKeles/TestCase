@@ -5,20 +5,20 @@ import jakarta.persistence.*;
 @Table(name = "follow")
 public class Follow {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ManyToOne
     @JoinColumn(name = "follower_id", nullable = false)
     private User follower;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ManyToOne
     @JoinColumn(name = "following_id", nullable = false)
     private User following;
 
     @Column(name = "created_at")
     private int createdAt;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // JPA için birincil anahtar gerekli olduğundan bir ekleme yapıldı
 
     // Getters Setters
     public User getFollower() {
